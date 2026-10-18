@@ -114,8 +114,8 @@ export default function Hero() {
               </g>
             </svg>
             <Image
-              src="/perfil.webp"
-              alt="Mateo Mercado"
+              src="/gato.webp"
+              alt="Gato con traje, corbata roja y maletín"
               fill
               priority
               sizes="(min-width: 1024px) 460px, 90vw"
