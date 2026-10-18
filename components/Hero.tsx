@@ -18,6 +18,7 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const sceneRef = useRef<HTMLDivElement>(null);
 
   // Parallax suave del retrato siguiendo el mouse (solo puntero fino, sin reduced-motion)
   useEffect(() => {
@@ -36,6 +37,9 @@ export default function Hero() {
         portraitRef.current.style.transform = `translate3d(${cx * 14}px, ${cy * 10}px, 0)`;
       if (cardRef.current)
         cardRef.current.style.transform = `translate3d(${cx * -22}px, ${cy * -16}px, 0)`;
+      // La escena se mueve al revés dentro del círculo: da profundidad
+      if (sceneRef.current)
+        sceneRef.current.style.transform = `translate3d(${cx * -18}px, ${cy * -12}px, 0)`;
       raf = Math.abs(tx - cx) + Math.abs(ty - cy) > 0.001 ? requestAnimationFrame(tick) : 0;
     };
     const onMove = (e: PointerEvent) => {
@@ -97,7 +101,12 @@ export default function Hero() {
         {/* Retrato con anillos neón: el anillo va detrás de la foto recortada, así los hombros lo cruzan */}
         <div className="enter relative mx-auto aspect-square w-full max-w-[460px]" style={d(3)}>
           <div ref={portraitRef} className="absolute inset-0 will-change-transform">
-            <div className="absolute left-1/2 top-[46%] size-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#3b6cff40_0%,#9b4dff22_45%,transparent_70%)] blur-xl" />
+            {/* Escena de ciudad al atardecer, recortada al círculo del anillo */}
+            <div className="absolute left-[13%] top-[8.5%] size-[74%] overflow-hidden rounded-full">
+              <div ref={sceneRef} className="absolute -inset-[6%] will-change-transform">
+                <Image src="/escena.webp" alt="" fill sizes="(min-width: 1024px) 380px, 75vw" className="object-cover" />
+              </div>
+            </div>
             <svg viewBox="0 0 400 400" className="pointer-events-none absolute inset-0 size-full" aria-hidden>
               <defs>
                 <linearGradient id="ring-g" x1="0" x2="1" y1="0" y2="0">
@@ -114,8 +123,8 @@ export default function Hero() {
               </g>
             </svg>
             <Image
-              src="/gato.webp"
-              alt="Gato con traje, corbata roja y maletín"
+              src="/retrato-ilustrado.webp"
+              alt="Mateo Mercado en estilo ilustración"
               fill
               priority
               sizes="(min-width: 1024px) 460px, 90vw"
