@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>CV - Mateo Mercado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0b1230;
+    --text: #2b3352;
+    --muted: #5d6789;
+    --line: #dfe4f3;
+    --blue: #2563eb;
+    --violet: #7c3aed;
+    --cyan: #0891b2;
+  }
+  html, body { background: #fff; }
+  body {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    color: var(--text);
+    font-size: 9.3pt;
+    line-height: 1.42;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { width: 210mm; min-height: 297mm; padding: 13mm 15mm 11mm; position: relative; }
+  .page::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 4.5mm;
+    background: linear-gradient(90deg, #22b8ff, #3b6cff 45%, #9b4dff);
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 10mm; padding-bottom: 4.5mm; border-bottom: 1px solid var(--line); }
+  h1 { font-size: 25pt; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); line-height: 1.05; }
+  .role { margin-top: 1.6mm; font-size: 10.5pt; white-space: nowrap; font-weight: 600; color: var(--blue); }
+  .contact { list-style: none; white-space: nowrap; text-align: right; font-size: 8.8pt; color: var(--muted); line-height: 1.6; }
+  .contact b { color: var(--ink); font-weight: 600; }
+
+  section { margin-top: 3.8mm; }
+  h2 {
+    display: flex; align-items: center; gap: 3mm;
+    font-size: 8.4pt; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--violet);
+    margin-bottom: 2.4mm;
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .summary { font-size: 9.5pt; color: var(--text); }
+
+  .skills { display: grid; grid-template-columns: 30mm 1fr; row-gap: 1.3mm; column-gap: 4mm; }
+  .skills dt { font-weight: 700; color: var(--ink); }
+  .skills dd { color: var(--text); }
+
+  .project { margin-bottom: 2.6mm; break-inside: avoid; }
+  .project:last-child { margin-bottom: 0; }
+  .p-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .p-title { font-size: 10.4pt; font-weight: 700; color: var(--ink); }
+  .p-title span { font-weight: 500; color: var(--muted); font-size: 9pt; }
+  .p-link { font-size: 8.4pt; color: var(--blue); white-space: nowrap; }
+  .p-stack { font-size: 8.4pt; font-weight: 600; color: var(--cyan); margin: 0.6mm 0 1mm; }
+  ul.bullets { padding-left: 4mm; }
+  ul.bullets li { margin-bottom: 0.5mm; }
+  ul.bullets li::marker { color: var(--violet); }
+
+  .edu-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-title { font-weight: 700; color: var(--ink); font-size: 10.2pt; }
+  .edu-sub { font-weight: 500; color: var(--muted); font-size: 9pt; }
+  .tag { font-size: 8.4pt; font-weight: 600; color: var(--blue); }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+  ul.plain { list-style: none; }
+  ul.plain li { margin-bottom: 0.8mm; }
+  ul.plain li::before { content: "▸ "; color: var(--violet); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>Mateo Mercado</h1>
+      <p class="role">Desarrollador Backend · Node.js · TypeScript · PostgreSQL</p>
+    </div>
+    <ul class="contact">
+      <li><b>mateomercado234@gmail.com</b></li>
+      <li>Colombia</li>
+      <li><a href="https://www.linkedin.com/in/mateo-mercado-german-5082bb358/">linkedin.com/in/mateo-mercado-german</a></li>
+      <li><a href="https://github.com/MateoMg06">github.com/MateoMg06</a></li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>Perfil</h2>
+    <p class="summary">
+      Estudiante de desarrollo de software en Riwi, enfocado en el backend. Construyo APIs REST limpias, seguras
+      y escalables con Node.js, Express, NestJS, TypeScript y PostgreSQL, siguiendo una arquitectura por capas
+      (rutas, controladores, servicios y repositorios). Tengo experiencia práctica con autenticación JWT, control de
+      roles, ORMs, contenedores con Docker y documentación con Swagger. Mi objetivo es crecer como Backend Developer
+      profesional, profundizando en arquitectura de software, testing y DevOps.
+    </p>
+  </section>
+
+  <section>
+    <h2>Formación</h2>
+    <div class="edu-head">
+      <p class="edu-title">Riwi <span class="edu-sub">— Programa de formación en desarrollo de software, énfasis en backend</span></p>
+      <span class="tag">En curso</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Habilidades técnicas</h2>
+    <dl class="skills">
+      <dt>Backend</dt><dd>Node.js, Express, NestJS, TypeScript, JavaScript, APIs REST, JWT, bcrypt</dd>
+      <dt>Bases de datos</dt><dd>PostgreSQL, SQL, Sequelize, TypeORM, Supabase, migraciones y seeders</dd>
+      <dt>Frontend</dt><dd>React, Vite, Tailwind CSS, HTML, CSS</dd>
+      <dt>DevOps y tools</dt><dd>Docker, Docker Compose, Git, GitHub, Jenkins, SonarQube, Postman, Swagger, Linux</dd>
+      <dt>Otros</dt><dd>Python, Jest, Vercel, Supabase Storage, Resend, EmailJS, Google reCAPTCHA</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Proyectos</h2>
+
+    <div class="project">
+      <div class="p-head">
+        <p class="p-title">Riwi TV <span>— API para plataforma de cines</span></p>
+        <a class="p-link" href="https://github.com/MateoMg06/RIWI-TV-PUBLIC">github.com/MateoMg06/RIWI-TV-PUBLIC</a>
+      </div>
+      <p class="p-stack">Node.js · Express · TypeScript · PostgreSQL · Sequelize · Docker · Jest · Swagger</p>
+      <ul class="bullets">
+        <li>API REST con arquitectura por capas: usuarios, ubicaciones, cines, películas, cartelera con filtros y funciones.</li>
+        <li>Autenticación con JWT y refresh tokens con rotación, bloqueo tras cinco intentos fallidos y recuperación de contraseña.</li>
+        <li>Mapa de sillas con bloqueo transaccional de diez minutos para evitar reservas duplicadas.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="p-head">
+        <p class="p-title">Smile and Wave Charters <span>— Marketplace full-stack de yates</span></p>
+        <a class="p-link" href="https://swcharters.vercel.app">swcharters.vercel.app</a>
+      </div>
+      <p class="p-stack">React · Vite · Node.js · Express · PostgreSQL · Supabase · Vercel</p>
+      <ul class="bullets">
+        <li>Autenticación con JWT y cookies, publicaciones, panel de administración, campañas, cupones e imágenes en Supabase Storage.</li>
+        <li>Verificación de email y recuperación de contraseña con Resend.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="p-head">
+        <p class="p-title">RiwiMediCare Plus <span>— API de inventario médico</span></p>
+        <a class="p-link" href="https://github.com/MateoMg06/RiwiMediCare-Plus">github.com/MateoMg06/RiwiMediCare-Plus</a>
+      </div>
+      <p class="p-stack">Express 5 · TypeScript estricto · PostgreSQL · Sequelize · JWT · Multer · Docker · Swagger</p>
+      <ul class="bullets">
+        <li>Gestión de clínicas, bodegas, medicamentos, inventarios y solicitudes de insumos, con control de acceso por roles.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="p-head">
+        <p class="p-title">API de Solicitudes Comerciales <span>— NestJS</span></p>
+        <a class="p-link" href="https://github.com/MateoMg06/simulacro-prueba-de-desempe-o-nestjs">github.com/MateoMg06</a>
+      </div>
+      <p class="p-stack">NestJS · TypeORM · PostgreSQL · Swagger · Docker Compose</p>
+      <ul class="bullets">
+        <li>API key y guards por rol, DTOs validados, paginación, historial de auditoría y concurrencia optimista.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="p-head">
+        <p class="p-title">VC Energía <span>— Landing page corporativa</span></p>
+        <a class="p-link" href="https://www.venecomllc.com/">venecomllc.com</a>
+      </div>
+      <p class="p-stack">Vite · TypeScript · Tailwind CSS · EmailJS · Google reCAPTCHA</p>
+      <ul class="bullets">
+        <li>Sitio corporativo con formulario de contacto protegido con reCAPTCHA.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="p-head">
+        <p class="p-title">Otros proyectos</p>
+      </div>
+      <ul class="bullets">
+        <li><b>Pipeline DevOps:</b> CI/CD para una API NestJS con Jenkins, SonarQube, Docker Compose y Husky.</li>
+        <li><b>Glam Studio Catalog:</b> catálogo de productos con Node.js y PostgreSQL, con migraciones y seeders.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

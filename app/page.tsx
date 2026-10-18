@@ -91,8 +91,7 @@ const projects = [
 ];
 
 const contacts = [
-  // TODO: reemplazar el correo por el real
-  { href: "mailto:mateomercado@email.com", label: "mateomercado@email.com", Icon: Mail },
+  { href: "mailto:mateomercado234@gmail.com", label: "mateomercado234@gmail.com", Icon: Mail },
   {
     href: "https://www.linkedin.com/in/mateo-mercado-german-5082bb358/",
     label: "linkedin.com/in/mateo-mercado-german",
