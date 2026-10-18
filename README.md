@@ -2,6 +2,8 @@
 
 Portafolio personal de **Mateo Mercado**, desarrollador backend. Muestra mi perfil, stack y proyectos con una estética neón y animaciones.
 
+**En vivo:** <https://portafolio-remake.vercel.app>
+
 ## Stack
 
 - [Next.js](https://nextjs.org/) (App Router) + React + TypeScript
