@@ -18,8 +18,6 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<HTMLDivElement>(null);
-
   // Parallax suave del retrato siguiendo el mouse (solo puntero fino, sin reduced-motion)
   useEffect(() => {
     const section = sectionRef.current;
@@ -36,11 +34,7 @@ export default function Hero() {
       if (portraitRef.current)
         portraitRef.current.style.transform = `translate3d(${cx * 14}px, ${cy * 10}px, 0)`;
       if (cardRef.current)
-        cardRef.current.style.transform = `translate3d(${cx * -22}px, ${cy * -16}px, 0)`;
-      // La escena se mueve al revés dentro del círculo: da profundidad
-      if (sceneRef.current)
-        sceneRef.current.style.transform = `translate3d(${cx * -18}px, ${cy * -12}px, 0)`;
-      raf = Math.abs(tx - cx) + Math.abs(ty - cy) > 0.001 ? requestAnimationFrame(tick) : 0;
+        cardRef.current.style.transform = `translate3d(${cx * -22}px, ${cy * -16}px, 0)`;      raf = Math.abs(tx - cx) + Math.abs(ty - cy) > 0.001 ? requestAnimationFrame(tick) : 0;
     };
     const onMove = (e: PointerEvent) => {
       const r = section.getBoundingClientRect();
@@ -101,11 +95,10 @@ export default function Hero() {
         {/* Retrato con anillos neón: el anillo va detrás de la foto recortada, así los hombros lo cruzan */}
         <div className="enter relative mx-auto aspect-square w-full max-w-[460px]" style={d(3)}>
           <div ref={portraitRef} className="absolute inset-0 will-change-transform">
-            {/* Escena de ciudad al atardecer, recortada al círculo del anillo */}
-            <div className="absolute left-[13%] top-[8.5%] size-[74%] overflow-hidden rounded-full">
-              <div ref={sceneRef} className="absolute -inset-[6%] will-change-transform">
-                <Image src="/escena.webp" alt="" fill sizes="(min-width: 1024px) 380px, 75vw" className="object-cover" />
-              </div>
+            {/* Escena original de la ilustración, recortada al círculo del anillo.
+                Ocupa el mismo cuadro que el retrato recortado para que ambos coincidan. */}
+            <div className="absolute inset-0 [clip-path:circle(37%_at_50%_45.5%)]">
+              <Image src="/escena-gta.webp" alt="" fill sizes="(min-width: 1024px) 460px, 90vw" className="object-cover" />
             </div>
             <svg viewBox="0 0 400 400" className="pointer-events-none absolute inset-0 size-full" aria-hidden>
               <defs>
@@ -123,7 +116,7 @@ export default function Hero() {
               </g>
             </svg>
             <Image
-              src="/retrato-ilustrado.webp"
+              src="/retrato-gta.webp"
               alt="Mateo Mercado en estilo ilustración"
               fill
               priority
